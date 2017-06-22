@@ -20,19 +20,19 @@ var work = {
     {
       "employer": "Australia Post",
       "title": "Innovation Lead",
-      "location": "Melbourne",
+      "location": "Melbourne, Australia",
       "dates": "Oct 2016 - Dec 2016",
       "description": "Design Sprints for the MyPost Business team on a major release program of work."
     }, {
       "employer": "Australia Post",
       "title": "Delivery Lead",
-      "location": "Melbourne",
+      "location": "Sydney, Australia",
       "dates": "Jun 2016 - Oct 2016",
       "description": "Worked on the Receva startup project on refining product offerings and product management."
     }, {
       "employer": "NAB",
       "title": "Mobile Delivery Lead",
-      "location": "Melbourne",
+      "location": "Brisbane, Australia",
       "dates": "Jun 2015 - Jun 2016",
       "description": "Mobile team Delivery Lead for the iOS and Android mobile apps, both previous MIB  and new MA apps."
     }
@@ -64,21 +64,21 @@ var education = {
   "schools": [
     {
       "name": "Mitcham Primary",
-      "location": "Melbourne",
+      "location": "Melbourne, Australia",
       "degree": "Primary School Graduate",
       "dates": "Jan 1980 - Dec 1985",
       "url": "http://www.google.com.au",
       "majors": ["aaa", "bbb", "ccc"]
     }, {
       "name": "Yarra Valley Secondary",
-      "location": "Melbourne",
+      "location": "Melbourne, Australia",
       "degree": "Secondary School Graduate",
       "dates": "Jan 1990 - Dec 1995",
       "url": "http://www.google.com.au",
       "majors": ["aaa", "bbb", "ccc"]
     }, {
       "name": "RMIT University",
-      "location": "Melbourne",
+      "location": "Melbourne, Australia",
       "degree": "Tertiary Bachelors Degree Graduate",
       "dates": "Jan 2000 - Dec 2005",
       "url": "http://www.google.com.au",
@@ -95,6 +95,8 @@ var education = {
   ]
 };
 
+
+// bio display
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
@@ -138,7 +140,8 @@ if (bio.skills.length > 0) {
   }
 }
 
-function displayWork () {
+// work sections to put work roles on the page
+work.display = function () {
   // APPEND to workExperience - a workStart which is a work-entry div, under the workExperience h2
   // each HTMLworkStart adds a work-entry class div
   for (job in work.jobs) {
@@ -152,20 +155,20 @@ function displayWork () {
   }
 }
 
-displayWork();
+work.display();
 
-function inName() {
-  var intName = "";
-  var names = bio.name.split(" ");
-  names[1] = names[1].toUpperCase();
-  intName = names.join(" ");
-  return intName;
-}
+// Internationalisation button to capitalise last name
+// function inName() {
+//   var intName = "";
+//   var names = bio.name.split(" ");
+//   names[1] = names[1].toUpperCase();
+//   intName = names.join(" ");
+//   return intName;
+// }
+// inName();
+// $("#main").append(internationalizeButton);
 
-inName();
-
-$("#main").append(internationalizeButton);
-
+// Projects section to put projects on the page
 projects.display = function() {
   
   for(proj in projects.projects) {
@@ -189,3 +192,6 @@ projects.display = function() {
 }
 
 projects.display();
+
+// Add map to the bottom. This code just adds from helper.js an empty div
+$("#mapDiv").append(googleMap);
