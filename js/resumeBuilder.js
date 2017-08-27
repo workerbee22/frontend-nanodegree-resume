@@ -1,3 +1,6 @@
+// Resume Builder Updated
+// Updated to re structure using Separation of Concerns as part of the Advanced Interactive Websites final module of nano degree
+
 // Main file working with helper.js to render the page
 var bio = {
     "name": "Mike Hughes",
